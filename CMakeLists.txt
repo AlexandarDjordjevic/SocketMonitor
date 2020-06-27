@@ -11,13 +11,15 @@ set(Src
 )
 
 set(Include 
-    include/Network/SocketMonitor.hpp
+    include/SocketMonitor.hpp
 )
 
-add_library(${this} STATIC ${Src})
+add_library(${this} STATIC ${Src} ${Include})
 
 set_target_properties(${this} PROPERTIES
     FOLDER Libraries
 )
 
 target_include_directories(${this} PUBLIC include)
+
+target_link_libraries(${this} PUBLIC Socket)
